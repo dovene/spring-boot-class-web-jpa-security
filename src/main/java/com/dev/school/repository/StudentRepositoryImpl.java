@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.dev.school.model.Student;
 
 @Repository
-public class StudentRepositoryImpl implements StudentRepository{
+public class StudentRepositoryImpl{
     private ArrayList<Student> students = new ArrayList<>();
 
     public List<Student> getAll() {
