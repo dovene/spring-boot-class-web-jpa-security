@@ -8,5 +8,4 @@ public class Student {
     private String registrationNumber;
     private String firstName;
     private String lastName;
-
 }
