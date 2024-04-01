@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-
 @Controller
 @RequestMapping("/student")
 public class StudentController {
@@ -36,7 +35,7 @@ public class StudentController {
         return "redirect:/student/list";
     }
 
-     @GetMapping("/update/{id}")
+    @GetMapping("/update/{id}")
     public String displayUpdateForm(@PathVariable("id") String id, Model model) {
         Student student = studentService.findById(id);
         model.addAttribute("student", student);
@@ -48,11 +47,11 @@ public class StudentController {
         studentService.update(student);
         return "redirect:/student/list";
     }
-  
+
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable("id") String id) {
         studentService.delete(id);
         return "redirect:/student/list";
     }
-    
+
 }
