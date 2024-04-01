@@ -30,7 +30,7 @@ public class StudentController {
     }
 
     @PostMapping("/add")
-    public String processAdd(Model model, Student student) {
+    public String processAdd(Student student) {
         studentService.add(student);
         return "redirect:/student/list";
     }
@@ -43,7 +43,7 @@ public class StudentController {
     }
 
     @PostMapping("/update")
-    public String processUpdate(Student student, Model model) {
+    public String processUpdate(Student student) {
         studentService.update(student);
         return "redirect:/student/list";
     }
