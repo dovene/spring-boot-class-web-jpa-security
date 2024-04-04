@@ -5,7 +5,7 @@
 <body>
 <div class="container">
 	<div th:replace="~{common.html :: #menu}"></div>
-	<div class="row"><h2>Connexion</h2></div>
+	<div><h2>Connexion</h2></div>
 	<div th:if="${param.error}">
         <p style="color: red;">Invalid username or password. Please try again.</p>
     </div>
