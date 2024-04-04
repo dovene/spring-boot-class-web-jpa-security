@@ -3,11 +3,14 @@ package com.dev.school.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.dev.school.model.User;
 import com.dev.school.service.UserService;
+
+import jakarta.validation.Valid;
 
 @Controller
 public class UserController {
@@ -28,7 +31,10 @@ public class UserController {
     }
 
     @PostMapping("/signup")
-    public String signup(User user) {
+    public String signup(@Valid User user, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "/signup";
+        }
         userService.register(user);
         return "redirect:/login";
     }
