@@ -16,19 +16,23 @@ public class StudentServiceImpl implements StudentService{
     StudentRepository studentRepository;
 
     public List<Student> getAll() {
-        return studentRepository.getAll();
+        return studentRepository.findAll();
     }
 
     public void add(Student student) {
-        studentRepository.add(student);
+        studentRepository.save(student);
     }
 
     public void update(Student studentParameter) {
-        studentRepository.update(studentParameter);
+        if (findById(studentParameter.getRegistrationNumber()) != null){
+            studentRepository.save(studentParameter);
+        }
     }
 
     public void delete(String id) {
-        studentRepository.delete(id);
+        if (findById(id) != null){
+            studentRepository.deleteById(id);
+        }
     }
 
     public Student findById(String id) {

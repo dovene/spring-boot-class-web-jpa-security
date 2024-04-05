@@ -1,14 +1,10 @@
 package com.dev.school.repository;
 
-import java.util.List;
-import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.dev.school.model.Student;
 
-public interface StudentRepository {
- public List<Student> getAll();
- public void add(Student student);
- public void update(Student studentParameter);
- public void delete(String id);
- public Optional<Student> findById(String id);
+public interface StudentRepository extends JpaRepository<Student, String> {
+ 
 }
