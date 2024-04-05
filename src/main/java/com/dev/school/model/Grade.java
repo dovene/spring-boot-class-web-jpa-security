@@ -1,5 +1,6 @@
 package com.dev.school.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -27,7 +28,8 @@ public class Grade {
     @JoinColumn(name = "subject_id")
     private Subject subject;
 
-    @Min(value = 0, message = "La valeur doit être supérieure ou égale à 0")
-    @Max(value = 20, message = "La valeur doit être inférieure ou égale à 20")
-    private int grade;
+    @Min(value = 0, message = "La note doit être supérieure ou égale à 0")
+    @Max(value = 20, message = "La note doit être inférieure ou égale à 20")
+    @Column(name = "grade")
+    private int gradeValue;
 }

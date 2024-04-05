@@ -52,6 +52,8 @@ public class GradeController {
 
     @GetMapping("/update/{id}")
     public String displayUpdateForm(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("subjects", subjectService.getAll());
+        model.addAttribute("students", studentService.getAll());
         Grade grade = gradeService.findById(id);
         model.addAttribute("grade", grade);
         return "grade/update";

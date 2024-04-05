@@ -22,7 +22,7 @@
 				<tr th:each="grade : ${grades}">
 					<td style="width: 10%" th:text="${grade.student.firstName} + ' '+ ${grade.student.lastName}"></td>
 					<td th:text="${grade.subject.name}"></td>
-					<td th:text="${grade.grade}"></td>
+					<td th:text="${grade.gradeValue}"></td>
 					<td style="width: 15%" class="text-center">
 						<a th:href="@{/grade/update/{id}(id=${grade.id})}">Modifier</a>&nbsp;|&nbsp;
 						<a th:href="@{/grade/delete/{id}(id=${grade.id})}">Supprimer</a>
