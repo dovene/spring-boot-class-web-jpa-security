@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{common.html :: #header}">
+<body>
+<div class="container">
+	<div th:replace="common.html :: #menu"></div>
+	<div class="row">
+		<h2>Modifier la matière</h2>
+	</div>
+
+	<div class="row">
+		<form action="#" th:action="@{/subject/update}" th:object="${subject}" method="post" class="form-horizontal" style="width: 100%">
+			<div class="form-group">
+				<label for="name" class="col-sm-2 control-label">Nom</label>
+				<div class="col-sm-10">
+					<input type="text" th:field="*{name}" id="name" placeholder="Nom" class="col-4">
+				</div>
+			</div>
+            <div class="form-group">
+				<label for="factor" class="col-sm-2 control-label">Coefficient</label>
+				<div class="col-sm-10">
+					<input type="text" th:field="*{factor}" id="factor" placeholder="Coefficient" class="col-4">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-12">
+                    <input type="hidden" th:field="*{id}">
+					<a class="btn btn-danger btn-sm" href="/subject/list">Annuler</a>
+					<input class="btn btn-primary btn-sm" type="submit" value="Enregistrer">
+				</div>
+			</div>
+
+		</form>
+	</div>
+
+</div>
+</body>
+</html>
