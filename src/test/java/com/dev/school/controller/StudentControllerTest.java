@@ -94,10 +94,11 @@ public class StudentControllerTest {
     @Test
     @WithMockUser("user")
     void testProcessUpdate() throws Exception {
-        String updateFormData = "registrationNumber=sdgfd&firstName=updated&lastName=updated";
         RequestBuilder requestUpdate = post("/student/update")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
-                .content(updateFormData)
+                .param("registrationNumber", "111")
+                .param("firstName", "toto")
+                .param("lastName", "tata")
                 .with(csrf());
         mockMvc.perform(requestUpdate)
                 .andExpect(status().is3xxRedirection())
