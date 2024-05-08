@@ -9,8 +9,9 @@ import com.dev.school.model.Grade;
 
 public interface GradeRepository extends JpaRepository<Grade, Long> {
     
-    @Query("SELECT g.student, g.subject, AVG(g.gradeValue) " +
+    @Query("SELECT g.student, g.subject, AVG(g.gradeValue) as average " +
            "FROM Grade g " +
-           "GROUP BY g.student, g.subject")
+           "GROUP BY g.student, g.subject "+
+           "ORDER BY average desc")
     List<Object[]> calculateStudentSubjectAverages();
 }
