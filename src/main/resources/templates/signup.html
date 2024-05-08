@@ -3,8 +3,8 @@
 	  xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{common.html :: #header}">
 <body>
+<div th:replace="common.html :: #menu"></div>
 <div class="container">
-	<div th:replace="common.html :: #menu"></div>
 	<div><h2>Inscription</h2></div>
 
 	<div class="row">
@@ -23,14 +23,14 @@
                     <p class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
 				</div>
 			</div>
-
+			<p>
 			<div class="form-group">
 				<div class="col-sm-12">
 					<input class="btn btn-primary btn-sm" type="submit" value="Enregistrer">
 					<a class="btn btn-danger btn-sm" href="/login">Se connecter</a>
 				</div>
 			</div>
-
+			</p>
 		</form>
 	</div>
 
