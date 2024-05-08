@@ -3,8 +3,8 @@
 	  xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{common.html :: #header}">
 <body>
+<div th:replace="common.html :: #menu"></div>
 <div class="container">
-	<div th:replace="~{common.html :: #menu}"></div>
 	<div><h2>Connexion</h2></div>
 	<div th:if="${param.error}">
         <p style="color: red;">Invalid username or password. Please try again.</p>
@@ -23,13 +23,14 @@
 					<input type="password" id="password" placeholder="Mot de passe"  name = "password" class="col-4">
 				</div>
 			</div>
-			<div class="form-group">
-				<div class="col-sm-12">
-					<input class="btn btn-primary btn-sm" type="submit" value="Se connecter">
-					<a class="btn btn-danger btn-sm" href="/signup">S'inscrire</a>
+			<p>
+				<div class="form-group">
+					<div class="col-sm-12">
+						<input class="btn btn-primary btn-sm" type="submit" value="Se connecter">
+						<a class="btn btn-danger btn-sm" href="/signup">S'inscrire</a>
+					</div>
 				</div>
-			</div>
-
+			</p>
 		</form>
 	</div>
 

@@ -4,10 +4,10 @@
 <head th:replace="~{common.html :: #header}">
 </head>
 <body>
+<div th:replace="common.html :: #menu"></div>
 <div class="container">
-	<div th:replace="common.html :: #menu"></div>
 	<div class="row"><h2>Les notes des étudiants</h2></div>
-	<div class="row">
+	<div class="row col-md-8">
 		<p> <a href="/grade/add" class="btn btn-primary btn-sm">Saisir une note</a></p>
 		<table class="table table-bordered table-sm">
 			<thead>
