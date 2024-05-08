@@ -70,4 +70,11 @@ public class GradeController {
         gradeService.delete(id);
         return "redirect:/grade/list";
     }
+
+    @GetMapping("/average")
+    public String average(Model model) {
+        model.addAttribute("studentSubjectAverages", gradeService.getStudentsAverageGrade());
+        return "grade/average";
+    }
+
 }
