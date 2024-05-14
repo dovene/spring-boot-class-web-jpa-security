@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{common.html :: #header}">
+</head>
+<body>
+<div th:replace="common.html :: #menu"></div>
+<div class="container">
+	<div class="row"><h2>Les notes des étudiants</h2></div>
+	<div class="row col-md-8">
+		<p> <a href="/grade/add" class="btn btn-primary btn-sm">Saisir une note</a></p>
+		<table class="table table-bordered table-sm">
+			<thead>
+				<tr>
+					<th>Etudiant</th>
+					<th>Matière</th>
+					<th>Note</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="grade : ${grades}">
+					<td style="width: 10%" th:text="${grade.student.firstName} + ' '+ ${grade.student.lastName}"></td>
+					<td th:text="${grade.subject.name}"></td>
+					<td th:text="${grade.gradeValue}"></td>
+					<td>
+						<a th:href="@{/grade/update/{id}(id=${grade.id})}"><button class="btn btn-info">Modifier</button></a>
+						<a th:href="@{/grade/delete/{id}(id=${grade.id})}"><button class="btn btn-danger">Supprimer</button></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<div th:replace="common.html :: #js-script"></div>
+</body>
+</html>

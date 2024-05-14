@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" 
 	  xmlns:th="http://www.thymeleaf.org">
+
 <head th:replace="~{common.html :: #header}">
 </head>
 <body>
+<div th:replace="common.html :: #menu"></div>
 <div class="container">
-	<div th:replace="common.html :: #menu"></div>
 	<div class="row"><h2>La liste des étudiants</h2></div>
-	<div class="row">
+	<div class="row col-md-8">
 		<p> <a href="/student/add" class="btn btn-primary btn-sm">Nouvel étudiant</a></p>
-		<table class="table table-bordered">
+		<table class="table table-bordered table-sm">
 			<thead>
 				<tr>
 					<th>Matricule</th>
@@ -23,14 +24,15 @@
 					<td style="width: 10%" th:text="${student.registrationNumber}"></td>
 					<td th:text="${student.firstName}"></td>
 					<td th:text="${student.lastName}"></td>
-					<td style="width: 15%" class="text-center">
-						<a th:href="@{/student/update/{id}(id=${student.registrationNumber})}">Modifier</a>&nbsp;|&nbsp;
-						<a th:href="@{/student/delete/{id}(id=${student.registrationNumber})}">Supprimer</a>
+					<td>
+						<a th:href="@{/student/update/{id}(id=${student.registrationNumber})}"><button class="btn btn-info">Modifier</button></a>
+						<a th:href="@{/student/delete/{id}(id=${student.registrationNumber})}"><button class="btn btn-danger">Supprimer</button></a>
 					</td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
 </div>
+<div th:replace="common.html :: #js-script"></div>
 </body>
 </html>

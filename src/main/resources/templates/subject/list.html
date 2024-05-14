@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="~{common.html :: #header}"> </head>
+  <body>
+    <div th:replace="common.html :: #menu"></div>
+    <div class="container">
+      <div class="row"><h2>La liste des matières</h2></div>
+      <div class="row col-md-8">
+          <p>
+            <a href="/subject/add" class="btn btn-primary btn-sm">Nouvelle matière</a>
+          </p>
+          <table class="table table-bordered table-sm">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Coefficient</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="subject : ${subjects}">
+                <td style="width: 10%" th:text="${subject.id}"></td>
+                <td th:text="${subject.name}"></td>
+                <td th:text="${subject.factor}"></td>
+                <td>
+                  <a th:href="@{/subject/update/{id}(id=${subject.id})}"
+                    ><button class="btn btn-info">Modifier</button></a
+                  >
+                  <a th:href="@{/subject/delete/{id}(id=${subject.id})}"
+                    ><button class="btn btn-danger">Supprimer</button></a
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    <div th:replace="common.html :: #js-script"></div>
+  </body>
+</html>
